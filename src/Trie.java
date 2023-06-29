@@ -25,10 +25,7 @@ class Trie {
             }
             node = node.get(word.charAt(i));
         }
-        if (node.isEnd()){
-            return true;
-        }
-        return false;
+        return node.isEnd();
     }
 
     public boolean startsWith(String prefix){
