@@ -39,10 +39,7 @@ class Trie {
             }
             node = node.get(prefix.charAt(i));
         }
-        if (!node.isEnd()){
-            return true;
-        }
-        return false;
+        return true;
     }
     public static void main(String[] args) {
         Trie tn = new Trie();
