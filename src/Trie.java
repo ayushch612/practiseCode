@@ -69,15 +69,37 @@ class Trie {
         }
     }
 
+    public StringBuilder longestCommonPrefix(TrieNode node, StringBuilder lcps){
+        int count = 0;
+        Integer key = null;
+        for(int index = 0 ; index < 26; index++){
+            if(node.containsKey(index)){
+               count ++;
+               key = index;
+            }
+        }
+        if(count != 1){
+            return lcps;
+        }else{
+            char ch  = (char)(key + 97);
+            longestCommonPrefix(node.get(key), lcps.append(ch));
+        }
+        return lcps;
+    }
+
     public static void main(String[] args) {
         Trie tn = new Trie();
         tn.insert("apple");
-        tn.insert("ap");
-        tn.insert("apxl");
+        tn.insert("app");
+        tn.insert("appxl");
         List<String> suggestions = tn.autoComplete("ap");
         for(String s : suggestions){
             System.out.println(s);
         }
+        TrieNode node = root;
+        StringBuilder res = new StringBuilder();
+        System.out.println(tn.longestCommonPrefix(node,res));
+
         System.out.println(tn.search("apps"));
         System.out.println(tn.startsWith("apx"));
     }
