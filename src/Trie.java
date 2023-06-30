@@ -8,6 +8,13 @@ class Trie {
         root = new TrieNode();
     }
 
+    public List<String> lexicoGraphSort(){
+        TrieNode node = root;
+        List<String> res = new ArrayList<>();
+        suggestions(node,res,"");
+        return res;
+    }
+
     public void insert(String word){
         TrieNode node = root;
         for(int i = 0 ; i < word.length(); i++){
@@ -89,13 +96,33 @@ class Trie {
 
     public static void main(String[] args) {
         Trie tn = new Trie();
-        tn.insert("apple");
-        tn.insert("app");
-        tn.insert("appxl");
+        //tn.insert("apple");
+        //tn.insert("app");
+        //tn.insert("appxl");
         List<String> suggestions = tn.autoComplete("ap");
         for(String s : suggestions){
             System.out.println(s);
         }
+
+        String s = "lexicographic sorting of a set of keys can be accomplished with " +
+                "a simple trie based algorithm we insert all keys in a trie output " +
+                "all keys in the trie by means of preorder traversal which results " +
+                "in output that is in lexicographically increasing order preorder " +
+                "traversal is a kind of depth first traversal";
+
+        // split the given string to set of keys
+        String[] dict = s.split(" ");
+
+        for (String word: dict) {
+            tn.insert(word);
+        }
+
+        List<String> sort = tn.lexicoGraphSort();
+        for(String so : sort){
+            System.out.println(so);
+        }
+
+
         TrieNode node = root;
         StringBuilder res = new StringBuilder();
         System.out.println(tn.longestCommonPrefix(node,res));
