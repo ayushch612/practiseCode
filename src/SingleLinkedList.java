@@ -170,13 +170,15 @@ public class SingleLinkedList {
         //SingleLinkedList sll2 = new SingleLinkedList();
         sll.push(1);
         sll.push(2);
-        sll.push(3);
-        sll.push(4);
+        //sll.push(3);
+        //sll.push(4);
+        //sll.push(5);
         sll.printLL();
-        Node temp = sll.head.next;
+        sll.printLL();
+        //Node temp = sll.head.next;
 
-        sll.deleteWithoutHead(temp);
-        sll.printLL();
+        //sll.deleteWithoutHead(temp);
+        //sll.printLL();
 //        sll2.enqueue(2);
 //        sll2.enqueue(4);
 //        sll2.enqueue(6);
@@ -190,7 +192,7 @@ public class SingleLinkedList {
 //        sll.insertCll(8);
 //        sll.insertCll(10);
 
-        System.out.println(sll.isCircularLL());
+        //System.out.println(sll.isCircularLL());
 
 
         //sll.printLL();
